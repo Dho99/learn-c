@@ -1,29 +1,89 @@
 #include <stdio.h>
 
-int main() {
-  int array4D[2][2][3][4] = {
-      {
-          {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}},
-          {{13, 14, 15, 16}, {17, 18, 19, 20}, {21, 22, 23, 24}},
-      },
-      {
-          {{25, 26, 27, 28}, {29, 30, 31, 32}, {33, 34, 35, 36}},
-          {{37, 38, 39, 40}, {41, 42, 43, 44}, {45, 46, 47, 48}},
-      },
+void bubbleSort(int arr[], int n) {
+	int i, j, tmp;
 
-  };
+	printf("\nBubble Sort (Descending):\n");
+	for (i = 0; i < n - 1; i++) {
+		for (j = 0; j < n - i - 1; j++) {
+			if (arr[j] < arr[j + 1]) {
+				tmp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = tmp;
+			}
+			for (int k = 0; k < n; k++) {
+				printf("%d, ", arr[k]);
+			}
+			printf("\n");
+		}
+	}
+}
 
-  for (int i = 0; i < 2; i++) {
-    for (int j = 0; j < 2; j++) {
-      for (int k = 0; k < 3; k++) {
-        for (int l = 0; l < 4; l++) {
-          printf("Array [%d][%d][%d][%d] = %d", i, j, k, l,
-                 array4D[i][j][k][l]);
-          printf("\n");
+void bubbleAscending(int arr[], int n) {
+    int i, j, tmp;
+
+    printf("\nBubble Sort (Ascending):\n");
+    for (i = 0; i < n - 1; i++) {
+        for (j = 0; j < n - i - 1; j++) {
+			printf("\n");
+			
+            if (arr[j + 1] < arr[j]) {
+				tmp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = tmp;
+            }
+			for (int k = 0; k < n; k++) {
+				printf("%d, ", arr[k]);
+			}
         }
-      }
     }
-  }
+}
 
-  return 0;
+void sorting(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - 1; j++) {
+            if (arr[j + 1] < arr[j]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+void sort() {
+    int array[100], n, i;
+
+    printf("Masukkan banyaknya elemen (maks 100) : ");
+    scanf("%d", &n);
+
+    printf("Masukkan nilai :\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &array[i]);
+    }
+
+    printf("\nSebelum Sorting :\n");
+    for (i = 0; i < n; i++) {
+        printf("%d ", array[i]);
+    }
+
+    // sorting(array, n);
+    bubbleAscending(array, n); 
+    printf("\n\nSesudah Sorting (Ascending):\n");
+    for (i = 0; i < n; i++) {
+        printf("%d ", array[i]);
+    }
+    
+    printf("\n");
+    
+    bubbleSort(array, n);  
+    printf("\n\nSesudah Sorting (Descending):\n");
+    for (i = 0; i < n; i++) {
+        printf("%d ", array[i]);
+    }
+}
+
+int main() {
+    sort();
+	return 0;
 }
