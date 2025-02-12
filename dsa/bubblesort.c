@@ -2,7 +2,7 @@
 
 void bubbleSortAsc(int numbers[], int n){
 	int j, i, tmp, iter = 0;
-	for(i = 0; i < n; i++){
+	for(i = 0; i < n - 1; i++){
 		for( j = 0; j < n-i-1; j++){
 			if(numbers[j] > numbers[j+1]){
 				tmp = numbers[j];
@@ -20,7 +20,7 @@ void bubbleSortAsc(int numbers[], int n){
 }
 void bubbleSortDesc(int numbers[], int n){
 	int j, i, tmp, iter = 0;
-	for(i = 0; i < n; i++){
+	for(i = 0; i < n - 1; i++){
 		for( j = 0; j < n-i-1; j++){
 			if(numbers[j] < numbers[j+1]){
 				tmp = numbers[j];
