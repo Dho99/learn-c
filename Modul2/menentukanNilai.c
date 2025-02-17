@@ -33,7 +33,8 @@ int main(){
         case 85 ... 100 : 
             predikat = 'A';
             break;
-        case 70 ... 84 : 
+        case 70 ...
+         84 : 
             predikat = 'B';
             break;
         case 60 ... 69 :
