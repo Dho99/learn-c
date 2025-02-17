@@ -4,8 +4,10 @@
 
 void sortString(char str[][50], int n, bool ascending){
     char temp[50];
+    int iter = 0;
     for(int i = 0; i < n; i++){
        for(int j = 0; j < n - i -1; j++){
+        iter++;
             if(ascending){
                 if(strcmp(str[j], str[j+1]) > 0){
                     strcpy(temp, str[j]);
@@ -19,6 +21,11 @@ void sortString(char str[][50], int n, bool ascending){
                     strcpy(str[j+1], temp);
                 }
 
+            }
+
+            printf("Iterasi ke : %d \n", iter);
+            for(int k = 0; k < n; k++){
+                printf("%s", str[k]);
             }
        }
     }
