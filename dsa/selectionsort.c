@@ -1,26 +1,39 @@
 #include <stdio.h>
 
-int main(){
-    int arr[] = {3,2,5,1,8,7,9};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    int i, j, min, temp;
-
-    for(i = 0; i < n; i++){
-        min = i;
-        for(j = i+1; j < n; j++){
-            if(arr[j] < arr[min]){
-                min = j;
-            }
-        }
-
-        temp = arr[i];
-        arr[i] = arr[min];
-        arr[min] = temp;
+int selectionSort(int arr[], int n){
+  int i, j, posisi, swap;
+  for(i = 0; i < (n-1); i++){
+    
+    posisi = i;
+    for (j = i + 1; j < n; j++){
+      if(arr[posisi] > arr[j]){
+        posisi = j;
+      }
     }
-
-    for(i = 0; i < n; i++){
-        printf("%d ", arr[i]);
+    if(posisi != i){
+      swap = arr[i];
+      arr[i] = arr[posisi];
+      arr[posisi] = swap;
     }
-
-    return 0;
+  }
 }
+
+int main(){
+  int array[100], n, i, j;
+
+  printf("Masukkan banyaknya jumlah data: ");
+  scanf("%d", &n);
+
+  printf("Masukkan data sebanyak %d :\n", n);
+  for(i = 0; i < n; i++){
+    scanf("%d", &array[i]);
+  }
+  selectionSort(array, n);
+
+  printf("Hasil pengurutan sebagai berikut:\n");
+  for(i = 0; i < n; i++){
+    printf("%d ", array[i]);
+  }
+  printf("\n");
+}
+
