@@ -2,6 +2,7 @@
 #define BUBBLESORT_H
 
 #include <stdio.h>
+
 void bubbleSortAsc(int numbers[], int n){
 	int j, i, tmp, iter = 0;
 	for(i = 0; i < n - 1; i++){
@@ -40,7 +41,13 @@ void bubbleSortDesc(int numbers[], int n){
 }
 
 void bubbleSort(int numbers[], int n){
-	int i;
+	int i, menu;
+
+	printf("Urutkan secara : \n");
+	printf("1. Ascending \n");
+	printf("2. Descending \n");
+	printf("Pilih pengurutan (1/2) : ");
+	scanf("%d", &menu);
 
 	printf("Sebelum Sorting \n");
 	for(i = 0; i < n; i++){
@@ -48,16 +55,16 @@ void bubbleSort(int numbers[], int n){
 	}
 	printf("\n \n");
 
-	printf("Setelah Sorting (ASC) \n");
-	bubbleSortAsc(numbers, n);
-	printf("Hasil : ");
-	for(i = 0; i < n; i++){
-		printf("%d, ", numbers[i]);
-	}
-	printf("\n \n");
+	
+	if(menu == 1){
+		printf("Setelah Sorting (ASC) \n");
+		bubbleSortAsc(numbers, n);
+		
+	}else{
+		printf("Setelah Sorting (DESC) \n");
+		bubbleSortDesc(numbers, n);
 
-	printf("Setelah Sorting (DESC) \n");
-	bubbleSortDesc(numbers, n);
+	}
 	printf("Hasil : ");
 	for(i = 0; i < n; i++){
 		printf("%d, ", numbers[i]);

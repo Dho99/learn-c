@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 // Fungsi untuk menggabungkan dua subarray
 void merge(int arr[], int left, int mid, int right) {
     int i, j, k;
@@ -19,7 +18,6 @@ void merge(int arr[], int left, int mid, int right) {
         leftArr[i] = arr[left + i];
     for (j = 0; j < n2; j++)
         rightArr[j] = arr[mid + 1 + j];
-
 
     printf("Left Array: ");
     for (int la = 0; la < n1; la++) {
@@ -39,7 +37,7 @@ void merge(int arr[], int left, int mid, int right) {
     j = 0;
     k = left;
     while (i < n1 && j < n2) {
-        if (leftArr[i] <= rightArr[j]) {
+        if (leftArr[i] >= rightArr[j]) { // Change comparison here
             arr[k] = leftArr[i];
             i++;
         } else {
@@ -62,8 +60,6 @@ void merge(int arr[], int left, int mid, int right) {
         j++;
         k++;
     }
-
-
 }
 
 // Fungsi Merge Sort dengan tampilan proses sorting

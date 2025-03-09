@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "bubblesort.h"
-#include "insertionsort.h"
+#include "insertionSort.h"
 #include "mergesort.h"
 #include "quicksort.h"
 #include "selectionsort.h"
